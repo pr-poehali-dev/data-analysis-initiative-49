@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
 
 const slides = [
@@ -393,6 +394,10 @@ function SlideContent({ content }: { content: typeof slides[0]["content"] }) {
 }
 
 export function PresentationSection() {
+  const handlePrint = () => {
+    window.print()
+  }
+
   return (
     <section className="py-24 bg-black" id="presentation">
       <div className="max-w-6xl mx-auto px-4 md:px-8">
@@ -400,9 +405,16 @@ export function PresentationSection() {
           <h2 className="font-orbitron text-3xl md:text-5xl font-bold text-white mb-4">
             Полная презентация
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
             Антикризисное агентство — разбор мифа о вреде 5G и Wi-Fi
           </p>
+          <Button
+            onClick={handlePrint}
+            className="bg-red-500 hover:bg-red-600 text-white font-orbitron px-8 py-3 print:hidden"
+          >
+            <Icon name="Printer" size={18} className="mr-2" />
+            Версия для печати / скриншотов
+          </Button>
         </div>
 
         <div className="space-y-8">
